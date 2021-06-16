@@ -1,4 +1,4 @@
-# Heade.txt
+# Header.txt
 
 Hi. I'm sharing source code for my website made for SUILO in Gliwice - Poland
 
