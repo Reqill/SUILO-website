@@ -90,7 +90,7 @@ export default function BidCard({ elementData, idx, filter, bids }) {
 
                 for (let i = 0; i < bids.length; i++) {
                     if (bids[i].id !== id) {
-                        newBids.unshift(bids[i])
+                        newBids.push(bids[i])
                     }
                 }
 
