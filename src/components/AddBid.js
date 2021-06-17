@@ -18,7 +18,7 @@ export default function AddBid({ bids }) {
         const salt = bcrypt.genSaltSync(10);
         foo.password = bcrypt.hashSync(foo.password, salt);
 
-        const newBids = [...bids, foo];
+        const newBids = [foo, ...bids];
         // console.log(newBids);
 
         let req = new XMLHttpRequest();
@@ -50,15 +50,15 @@ export default function AddBid({ bids }) {
                         </div>
                         <div className="form-container">
                             <label title="tytuł książki">Tytuł</label>
-                            <input type="text" name="title" required />
+                            <input type="text" name="title" required maxlength="63" />
                         </div>
                         <div className="form-container">
                             <label title="wydawnictwo książki">Wydawnictwo</label>
-                            <input type="text" name="publisher" required />
+                            <input type="text" name="publisher" required maxlength="63" />
                         </div>
                         <div className="form-container">
                             <label title="rok wydania">Rok</label>
-                            <input type="text" type="number" name="year" required />
+                            <input type="text" type="number" name="year" required maxlength="4" placeholder="XXXX" />
                         </div>
                         <div className="form-container">
                             <label title="przedmiot">Przedmiot</label>
@@ -116,7 +116,7 @@ export default function AddBid({ bids }) {
                         <div className="form-container">
                             <label title="proponowana cena książki">Cena</label>
                             <p className="current-form">zł</p>
-                            <input type="number" step="0.01" name="price" required />
+                            <input type="number" step="0.01" name="price" required maxlength="6" />
                         </div>
                     </div>
                     <div className="private-part">
@@ -127,7 +127,7 @@ export default function AddBid({ bids }) {
                         </div>
                         <div className="form-container">
                             <label>Email <span className="bold-label">SZKOLNY</span></label>
-                            <input name="email" type="email" pattern=".+@lo1\.gliwice\.pl" required />
+                            <input name="email" type="email" pattern=".+@lo1\.gliwice\.pl" required maxlength="63" />
                         </div>
                         <div className="form-container">
                             <label>Hasło <span className="additional">(potrzebne, aby usunąć ogłoszenie, gdy jest nie ważne)</span></label>
