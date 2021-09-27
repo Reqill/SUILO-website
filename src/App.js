@@ -9,6 +9,9 @@ import TournamentPage from './screens/TournamentPage.js'
 import NavBox from './components/NavBox.js'
 import NotFound from './screens/NotFound.js'
 import AuctionPage from './screens/AuctionPage.js'
+import Voting from './kill_me/Voting';
+
+import { useState, useEffect } from 'react';
 
 import logo from './images/Logo SU sygnet.svg';
 import logotype from './images/logotyp su.svg'
@@ -21,43 +24,58 @@ import {
 } from "react-router-dom";
 
 
+const NavBareczek = () => {
+  return (
+    <div className="nav-container">
+      <div className="nav-logo">
+        <img src={logo} className="su-logo" />
+        <img src={logotype} className="su-logotype" />
+      </div>
+      <div className="nav-scroll">
+        <NavStyledBox label={"Strona Główna"} to={"/"} activeOnlyWhenExact={true} />
+        <NavStyledBox label={"Aktualności"} to={"/news"} />
+        <NavStyledBox label={"Kiermasz"} to={"/kiermasz"} />
+        {/* <NavStyledBox label={"Aukcje"} to={"/auctions"} /> */}
+        <NavStyledBox label={"Kontakt"} to={"/contact"} />
+      </div>
+    </div>
+  );
+}
+
 
 export default function App() {
+
   return (
     <Router>
       <main>
-        <div className="nav-container" >
-          <div className="nav-logo">
-            <img src={logo} className="su-logo" />
-            <img src={logotype} className="su-logotype" />
-          </div>
-          <div className="nav-scroll">
-            <NavStyledBox label={"Strona Główna"} to={"/"} activeOnlyWhenExact={true} />
-            <NavStyledBox label={"Aktualności"} to={"/news"} />
-            <NavStyledBox label={"Kiermasz"} to={"/kiermasz"} />
-            {/* <NavStyledBox label={"Aukcje"} to={"/auctions"} /> */}
-            <NavStyledBox label={"Kontakt"} to={"/contact"} />
-          </div>
-        </div>
         <Switch>
           <Route exact path="/">
+            <NavBareczek />
             <div className='perma-spacer' />
             <HomePage />
             <div className='perma-spacer' />
             <Footer bottom={false} />
           </Route>
           <Route path="/news">
+            <NavBareczek />
             <div className='perma-spacer' />
             <NewsPage />
             <div className='perma-spacer' />
             <Footer bottom={true} />
           </Route>
+          <Route path="/glosowanie">
+            <div className='perma-spacer' />
+            <Voting />
+            <div className='perma-spacer' />
+          </Route>
           <Route path="/kiermasz">
+            <NavBareczek />
             <div className='perma-spacer' />
             <AuctionPage />
             <div className='perma-spacer' />
           </Route>
           <Route path="/contact">
+            <NavBareczek />
             <div className='perma-spacer' />
             <ContactPage />
             <div className='perma-spacer' />
@@ -70,6 +88,7 @@ export default function App() {
             <Footer />
           </Route> */}
           <Route path="*">
+            <NavBareczek />
             <div className='perma-spacer' />
             <NotFound />
             <div className='perma-spacer' />
