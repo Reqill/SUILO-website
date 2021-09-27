@@ -35,6 +35,7 @@ const NavBareczek = () => {
         <NavStyledBox label={"Strona Główna"} to={"/"} activeOnlyWhenExact={true} />
         <NavStyledBox label={"Aktualności"} to={"/news"} />
         <NavStyledBox label={"Kiermasz"} to={"/kiermasz"} />
+        <NavStyledBox label={"Głosowanie"} to={"/glosowanie"} />
         {/* <NavStyledBox label={"Aukcje"} to={"/auctions"} /> */}
         <NavStyledBox label={"Kontakt"} to={"/contact"} />
       </div>
@@ -64,9 +65,7 @@ export default function App() {
             <Footer bottom={true} />
           </Route>
           <Route path="/glosowanie">
-            <div className='perma-spacer' />
             <Voting />
-            <div className='perma-spacer' />
           </Route>
           <Route path="/kiermasz">
             <NavBareczek />
