@@ -27,12 +27,18 @@ const AfterVoting = ({ colors, changeCard, endDate, message, waitingForServer })
     return (
         <div className="center" style={{ width: "100%", maxWidth: "100%", marginBottom: "5px" }}>
 
-            <div className="dummy center" style={{ height: "120px" }}>
-                {waitingForServer?<Loader type="Bars" color={colors.primary} height={40} width={40} />: <p>
+            <div className="dummy center" style={{ height: "100px" }}>
+                {waitingForServer ? <Loader type="Bars" color={colors.primary} height={40} width={40} /> : <p>
                     {message}
                 </p>}
-               
             </div>
+            <div className="center" style={{ width: "95%" }}>
+                <p className="support-text">Możesz wspomóc nasz rozwój stawiając nam kawę, oraz dodając w wiadomości: 'suilo głosowanie'</p>
+                <a href="https://buycoffee.to/mikixm" target="_blank">
+                    <img src="https://buycoffee.to/btn/buycoffeeto-btn-primary.svg" style={{ width: "150px" }} alt="Postaw mi kawę na buycoffee.to" />
+                </a>
+            </div>
+
             <p className="countdown-label" style={{ color: colors.header }}>Do zakończenia głosowania pozostało:</p>
             <Countdown
                 date={endDate}
