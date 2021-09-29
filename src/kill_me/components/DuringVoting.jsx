@@ -163,7 +163,7 @@ const DuringVoting = ({ colors, changeCard, endDate, token, setMessage }) => {
                                     <p style={{ color: colors.description }}>
                                         Imię i nazwisko:
                                     </p>
-                                    <input className="def" list="inni-kandydaci" style={{ color: colors.header }} onChange={(e) => { setAdditionalCandidateName(e.target.value) }} required />
+                                    <input title="Możesz wprowadzić tylko imię i nazwisko używając wyłącznie liter występujących w polskim aflabecie" pattern="^[AaĄąBbCcĆćDdEeĘęFfGgHhIiJjKkLlŁłMmNnŃńOoÓóPpRrSsŚśTtUuWwYyZzŹźŻż]+(\s[AaĄąBbCcĆćDdEeĘęFfGgHhIiJjKkLlŁłMmNnŃńOoÓóPpRrSsŚśTtUuWwYyZzŹźŻż]+)?$" className="def" list="inni-kandydaci" style={{ color: colors.header }} onChange={(e) => { setAdditionalCandidateName(e.target.value) }} required />
                                     <datalist id="inni-kandydaci" style={{ color: colors.header }}  >
                                         {_renderAdditionalOptions()}
                                     </datalist>
