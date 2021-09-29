@@ -320,4 +320,13 @@
   font-size: 1.25em;
   font-weight: 600;
 }
+
+.support-text {
+  text-align: center;
+  font-family: "Montserrat";
+  font-weight: 600;
+  margin: 10px 0;
+  margin-top: 20px;
+  color: #00A962;
+}
 /*# sourceMappingURL=App.css.map */
