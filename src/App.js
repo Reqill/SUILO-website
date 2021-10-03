@@ -9,7 +9,7 @@ import TournamentPage from './screens/TournamentPage.js'
 import NavBox from './components/NavBox.js'
 import NotFound from './screens/NotFound.js'
 import AuctionPage from './screens/AuctionPage.js'
-import Voting from './kill_me/Voting';
+import Voting from './voting-app/Voting';
 
 import { useState, useEffect } from 'react';
 

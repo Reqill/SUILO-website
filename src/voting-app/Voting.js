@@ -9,13 +9,6 @@ import { baseApiLink } from './commonData';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
 import { getResults } from './firebase';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useRouteMatch
-} from "react-router-dom";
 
 
 const colorScheme = {
@@ -37,8 +30,7 @@ const Voting = () => {
   const [waitingForServer, setWaitingForServer] = useState(false);
   useEffect(() => {
 
-
-    // console.log("DOWNLOADING");
+    console.log("DOWNLOADING");
     fetch(baseApiLink + "/settings").then(response => response.json()).then(data => {
       if (data.startTime !== undefined && data.endTime !== undefined) {
         setSettings(data);
@@ -50,6 +42,7 @@ const Voting = () => {
     setWaitingForServer(true);
     getResults(callback);
   }, [])
+
   const callback = (credentials, user) => {
     if (credentials !== undefined && user !== undefined) {
       if (user.email.endsWith("@lo1.gliwice.pl")) {
@@ -72,17 +65,17 @@ const Voting = () => {
             setMessage("Możesz oddać tylko jeden głos!");
 
           }
-
         })
-
       }
       else {
         setWaitingForServer(false);
         // console.log("to nie email szkolny");
         alert("Musisz zalogować się z maila szkolnego! Domena: *@lo1.gliwice.pl")
       }
+    } else {
+      setWaitingForServer(false);
     }
-    setWaitingForServer(false);
+
 
 
   }
@@ -94,11 +87,11 @@ const Voting = () => {
           <h1 className="h1" style={{ color: colors.header }}>
             Głosowanie na Marszałka
           </h1>
-          <h2 style={{ color: colors.description }} className="h2">
+          <h2 className="h2" style={{ color: colors.description }}>
             I Liceum Ogółnokształcące w Gliwicach
           </h2>
           {
-            !loaded || waitingForServer ? <div style={{ margin: "40px" }}><Loader type="Bars" color={colors.primary} height={40} width={40} /></div> :
+            loaded && !waitingForServer ?
               currentCard === "before-time" ?
                 <BeforeTime colors={colors} changeCard={setCurrentCard} endDate={settings.startTime._seconds * 1000} /> :
                 currentCard === "before-voting" ?
@@ -109,7 +102,8 @@ const Voting = () => {
                       <AfterVoting colors={colors} changeCard={setCurrentCard} endDate={settings.endTime._seconds * 1000} message={message} /> :
                       currentCard === "after-time" ?
                         <AfterTime colors={colors} /> :
-                        <p>WTF</p>
+                        <p>Tell me how</p> :
+              <div style={{ margin: "40px" }}><Loader type="Bars" color={colors.primary} height={40} width={40} /></div>
           }
           <p className="signed" style={{ color: colors.description }}>{'By: Maciuga Adam & Mrózek Mikołaj'}</p>
         </div>
