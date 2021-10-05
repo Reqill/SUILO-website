@@ -27,10 +27,13 @@ const AfterVoting = ({ colors, changeCard, endDate, message, waitingForServer })
     return (
         <div className="center" style={{ width: "100%", maxWidth: "100%", marginBottom: "5px" }}>
 
-            <div className="dummy center" style={{ height: "100px" }}>
-                {waitingForServer ? <Loader type="Bars" color={colors.primary} height={40} width={40} /> : <p>
-                    {message}
-                </p>}
+            <div className="dummy center" style={{ height: "100px", width: "100%" }}>
+                <div className="center">
+                    {waitingForServer ? <Loader type="Bars" color={colors.primary} height={40} width={40} /> : <p style={{ textAlign: "center", width: "100%" }}>
+                        {message}
+                    </p>}
+                </div>
+
             </div>
             <div className="center" style={{ width: "95%" }}>
                 <p className="support-text">Możesz wspomóc nasz rozwój stawiając nam kawę, oraz dodając w wiadomości: 'suilo głosowanie'</p>
