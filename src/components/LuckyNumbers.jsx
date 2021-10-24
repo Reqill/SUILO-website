@@ -50,7 +50,7 @@ export default function LuckyNumbers() {
             setLoaded(true);
         })
         return (
-            <div className="loader-position">
+            <div className="loader-position" style={{ maxHeight: "100px" }}>
                 <div className="loader-absolute">
                     <Loader type="Bars" color="#f58f0b" height={50} width={50} />
                 </div>
