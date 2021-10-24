@@ -10,6 +10,7 @@ import NavBox from './components/NavBox.js'
 import NotFound from './screens/NotFound.js'
 import AuctionPage from './screens/AuctionPage.js'
 import Voting from './voting-app/Voting';
+import LuckyNumbers from './components/LuckyNumbers'
 
 import { useState, useEffect } from 'react';
 
@@ -60,6 +61,7 @@ export default function App() {
           <Route path="/news">
             <NavBareczek />
             <div className='perma-spacer' />
+            <LuckyNumbers />
             <NewsPage />
             <div className='perma-spacer' />
             <Footer bottom={true} />

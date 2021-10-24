@@ -1490,3 +1490,98 @@ div.card{
         }
     }
 }
+
+.lnumbers-container{
+    margin: auto;
+    @include desktop-full(){
+        max-width: 95vw;
+    }
+    @include desktop-max(){
+        max-width: 86.75vw;
+    }
+    margin-top: 22px;
+    margin-bottom: -27px;
+    .nested-ln{
+        padding: 10px;
+        background-color: #fff;
+        margin: 8px auto;
+        border-radius: 10px;
+        box-shadow: 0 3px 10px rgba(0,0,0,.12);
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        padding: 15px 10px;
+        width: 73%;
+        @include desktop-full(){
+            width: 95%;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: baseline;
+        }
+    }
+}
+
+.left-ln{
+    @include desktop-full(){
+        text-align: left;
+        align-self: center;
+    }
+    text-align: center;
+    align-self: center;
+}
+
+.center-ln{
+    @include desktop-full(){
+        text-align: center;
+        align-self: center;
+    }
+    text-align: center;
+    align-self: center;
+}
+
+.right-ln{
+    @include desktop-full(){
+        text-align: right;
+        align-self: right;
+    }
+    text-align: center;
+    align-self: center;
+}
+
+.label-ln{
+    opacity: .9;
+    margin-bottom: -15px;
+    font-weight: 500;
+    font-size: .8em;
+}
+
+.lnln{
+    font-size: 2em;
+    color: #F5A21C;
+    font-weight: 600;
+    padding: 0;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    display: inline-flex;
+}
+
+.lninf{
+    font-size: 1.15em;
+    color: #222222;
+}
+
+.generate-ln{
+    display: flex;
+    justify-content: center;
+    white-space: nowrap;
+}
+.generate-ex{
+    display: flex;
+    justify-content: center;
+    white-space: nowrap;
+    @include desktop-full(){
+        justify-content: right;
+    }
+}
